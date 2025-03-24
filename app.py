@@ -3,13 +3,20 @@ from flask_cors import CORS
 import joblib
 import numpy as np
 import pandas as pd
+import os
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all domains
 
-# Load the model and scaler
-model = joblib.load("pregnancy_risk_model.pkl")
-scaler = joblib.load("scaler.pkl")
+# Get the current directory
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Load the model and scaler with proper paths
+model_path = os.path.join(current_dir, "pregnancy_risk_model.pkl")
+scaler_path = os.path.join(current_dir, "scaler.pkl")
+
+model = joblib.load(model_path)
+scaler = joblib.load(scaler_path)
 
 feature_names = [
     "Age", "Systolic BP", "Diastolic", "BS", "Body Temp", "BMI",

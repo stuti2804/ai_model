@@ -65,5 +65,9 @@ os.makedirs(model_dir, exist_ok=True)  # Create directory if it doesn't exist
 # ✅ Save the trained model & scaler
 joblib.dump(model, os.path.join(model_dir, "pregnancy_risk_model.pkl"))
 joblib.dump(scaler, os.path.join(model_dir, "scaler.pkl"))
+# Also save at exact path to make imports easier
+joblib.dump(model, os.path.join(model_dir, "pregnancy_risk_model.pkl"))
+joblib.dump(scaler, os.path.join(model_dir, "scaler.pkl"))
 
 print("\n✅ Model and Scaler saved successfully!")
+print(f"✅ scikit-learn version: {pd.show_versions()}")  # Print versions for debugging
