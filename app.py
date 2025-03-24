@@ -8,8 +8,8 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for all domains
 
 # Load the model and scaler
-model = joblib.load("pregnancy_risk_model.pkl")
-scaler = joblib.load("scaler.pkl")
+model = joblib.load("ai_model/pregnancy_risk_model.pkl")
+scaler = joblib.load("ai_model/scaler.pkl")
 
 feature_names = [
     "Age", "Systolic BP", "Diastolic", "BS", "Body Temp", "BMI",
